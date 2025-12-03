@@ -1,5 +1,5 @@
 
-  const WS_URL = "wss://koliniaira.github.io/Phone-Controller/controller.html";
+  const WS_URL = "wss://3e1cb5a7eef5.ngrok-free.app ";
 
 
   const vibrationPatterns = {
