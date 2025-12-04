@@ -6,18 +6,21 @@
   <link rel="stylesheet" href="controller.css" />
 </head>
 <body>
-  <!-- <div id="status">Ready. Use gestures anywhere on the screen.</div> -->
+  <div id="gestureLayer">
+    <div id="status">Ready. Use gestures anywhere on the screen.</div>
 
-  <!-- Minimal visual since users rely on TTS, this is just for my reference -->
-  <h1>Phone Client</h1>
-  <p>(Swipe up/down to move, double-tap to activate)</p>
+    <!-- Minimal visual since users rely on TTS, this is just for reference -->
+    <h1>Phone Client</h1>
+    <p>(Swipe up/down to move, double-tap to activate)</p>
 
-  <!-- Debug/test buttons
-  <div id="debugControls">
-    <button id="testFocus">Test menu_focus</button>
-    <button id="testActivate">Test menu_activate</button>
-  </div> -->
+    <!-- Debug/test buttons -->
+    <div id="debugControls">
+      <button id="testFocus">Test menu_focus</button>
+      <button id="testActivate">Test menu_activate</button>
+    </div>
+  </div>
 
-  <script src="controller.js"></script>
+  <script src="client.js"></script>
 </body>
+
 </html>

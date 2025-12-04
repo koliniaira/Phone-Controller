@@ -1,15 +1,16 @@
 
-  const WS_URL = "wss://3e1cb5a7eef5.ngrok-free.app ";
+const WS_URL = "wss://3e1cb5a7eef5.ngrok-free.app ";
+const gestureLayer = document.getElementById("gestureLayer");
 
 
-  const vibrationPatterns = {
+const vibrationPatterns = {
     "short_pulse": [0, 50],
     "long_warning": [0, 200, 100, 200]
   };
 
   // ---------------- FEEDBACK (Unity -> phone) ----------------
 
-  function handleFeedback(msg) {
+function handleFeedback(msg) {
     // TTS
     if ("speechSynthesis" in window && msg.tts) {
       const u = new SpeechSynthesisUtterance(msg.tts);
@@ -24,7 +25,7 @@
     }
   }
 
-  document.getElementById("testFocus").onclick = () => {
+document.getElementById("testFocus").onclick = () => {
     handleFeedback({
       eventId: "menu_focus",
       tts: "START",
@@ -34,7 +35,7 @@
     });
   };
 
-  document.getElementById("testActivate").onclick = () => {
+document.getElementById("testActivate").onclick = () => {
     handleFeedback({
       eventId: "menu_activate",
       tts: "Selection confirmed",
@@ -109,14 +110,28 @@
   let touchStartTime = 0;
   let lastTapTime = 0;
 
-  window.addEventListener("touchstart", (e) => {
+  gestureLayer.addEventListener(
+  "touchmove",
+  (e) => {
+    e.preventDefault();
+  },
+  { passive: false }
+);
+
+gestureLayer.addEventListener(
+  "touchstart",
+  (e) => {
     const t = e.touches[0];
     touchStartX = t.clientX;
     touchStartY = t.clientY;
     touchStartTime = Date.now();
-  }, { passive: true });
+  },
+  { passive: true }
+);
 
-  window.addEventListener("touchend", (e) => {
+gestureLayer.addEventListener(
+  "touchend",
+  (e) => {
     const t = e.changedTouches[0];
     const dx = t.clientX - touchStartX;
     const dy = t.clientY - touchStartY;
@@ -141,5 +156,6 @@
     }
 
     if (gesture) sendInputGesture(gesture);
-  }, { passive: true });
-
+  },
+  { passive: true }
+);

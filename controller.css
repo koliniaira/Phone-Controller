@@ -1,34 +1,39 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-}
-
+html,
 body {
-    margin: 0;
-    background: #ffffff;
-    font-family: system-ui, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;          /* no scrolling at all */
 }
 
+/* Full-screen interaction surface */
+#gestureLayer {
+  position: fixed;
+  inset: 0;                  /* top:0; right:0; bottom:0; left:0 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  font-family: system-ui, sans-serif;
+  touch-action: none;        /* tell browser we handle gestures */
+}
+
+/* Status label */
 #status {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    font-size: 14px;
-    opacity: 0.7;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 /* Debug buttons */
 #debugControls {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
 }
