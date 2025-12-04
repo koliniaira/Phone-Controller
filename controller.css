@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;          /* no scrolling at all */
+  overflow: hidden;          /* no scrolling*/
 }
 
 /* Full-screen interaction surface */
@@ -16,7 +16,6 @@ body {
   justify-content: center;
   background: #ffffff;
   font-family: system-ui, sans-serif;
-  touch-action: none;        /* tell browser we handle gestures */
 }
 
 /* Status label */
